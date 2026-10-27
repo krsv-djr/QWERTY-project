@@ -287,7 +287,7 @@ $("genTest").addEventListener("click", async () => {
   $("genTest").disabled = true;
   $("testArea").replaceChildren(el("p", "empty", "Đang tạo đề, chờ vài giây…"));
   try {
-    const data = await callAI(testPrompt(10, level), [{ role: "user", parts: [{ text: `Tạo đề mức ${level}.` }] }], 25000); // tạo đề: 25 giây
+    const data = await callAI(testPrompt(10, level), [{ role: "user", parts: [{ text: `Tạo đề mức ${level}.` }] }], 60000); // tạo đề: 60 giây
     if (!validQuestions(data.questions)) throw new Error("AI trả về dữ liệu sai định dạng. Hãy thử lại.");
     questions = data.questions;
     renderTest(level);
